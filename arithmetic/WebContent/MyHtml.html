@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>首页</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+   
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body background="images/A1.jpg">
+  <h1 align="center">四则运算</h1>
+  <!-- 传递参数的值给index.jsp处理 -->
+  <form action="index.jsp" method="post">
+ 
+  <!-- 互斥选择，值只能有一个 -->
+  <center>
+  <br>请选择上限(分数无上下限):
+  <select name="TopNumber">
+   	<option value=20>20</option>
+  	<option value=30>30</option>
+  	<option value=50>50</option>
+  	<option value=80>80</option>
+  	<option value=100>100</option>  											
+  </select><br>
+  <br>请选择下限(分数无上下限):
+  <select name="BaseNumber">
+  	<option value=0>0</option>
+  	<option value=1>1</option>
+  	<option value=3>3</option>
+  	<option value=5>5</option>
+  	<option value=10>10</option>  	
+  </select><br>
+  <!-- 多项选择，值可以有多个，在jsp中用数组保存 -->
+  <br>请在以下选项中打勾:
+  <input type="checkbox" name="function" value=1>有乘除
+  <input type="checkbox" name="function" value=2>无余数
+  <input type="checkbox" name="function" value=3>有括号
+  <br>
+  <br>
+  
+  <input type="submit" name="submit" value="确定">
+  </center>
+  </form>
+  </body>
+</html>
