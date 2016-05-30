@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>写笔记</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+    div
+    {
+       /* border:1px solid black;       */
+       margin:0px auto;
+       
+       
+    }
+    .btns { width:100px; height:30px; color:#000;background-color:#00ccff; 1px solid black; } 
+    </style>
+  </head>
+ <script type="text/jscript">
+   function show(){ 
+ 	  var date = new Date(); //日期对象 
+ 	  var now = ""; 
+ 	  now = date.getFullYear()+"年"; //读英文就行了 
+ 	  now = now + (date.getMonth()+1)+"月"; //取月的时候取的是当前月-1如果想取当前月+1就可以了 
+      now = now + date.getDate()+"日"; 
+ 	  now = now + date.getHours()+"时"; 
+ 	  now = now + date.getMinutes()+"分"; 
+ 	  now = now + date.getSeconds()+"秒"; 
+ 	  document.getElementById("nowDiv").innerHTML = now; //div的html是now这个字符串 
+ 	  setTimeout("show()",1000); //设置过1000毫秒就是1秒，调用show方法 
+   }   
+   function validate(){
+		if(Form.title.value==""){
+			alert("标题不能为空！");
+			return false;    		
+		}
+		if(Form.text.value==""){
+			alert("内容不能为空！");
+			return false;    		
+		}
+	}   
+     
+</script>    
+<body onload=show() style="background-color:#fbedce">
+  <h1 align="center">创建新笔记</h1>
+  <!-- 提交给jsp处理 -->
+  <!-- 传递参数的值给jsp处理 -->
+  
+  <form action="AddNoteEdit.jsp" method="post" name ="Form">
+    <div style="background-color:#e8f3f8;width:80%;height:15%;border:1px solid black;">
+    <div  style = "float:right;width:25%;height:50px;position:relative;top:16px;"  id="nowDiv" ></div>
+      <p>笔记标题:
+        <input name="title" type="text" size="20">
+        <br>
+        请选择日记类型:
+        <!-- 互斥选择，career的值只能有一个 -->
+        <input type="radio" name="gro" value="1" checked>
+        私有
+        <input type="radio" name="gro" value="0">
+        公开
+        <!-- 互斥选择，city的值只能有一个 -->
+        <br>
+        
+    </div>
+    
+    <!-- <div  style = "width:25%;height:10%;" id="nowDiv" ></div> -->
+    
+	<div style="background-color:#e8f3f8;width:80%;height:60%;border:1px solid black;">
+        <p><br>
+      笔记内容:        </p>
+        <p>
+          &nbsp; &nbsp; &nbsp;<textarea name="text" cols="100" rows="10"></textarea>
+          <br>
+          <br>
+           &nbsp; &nbsp; &nbsp;
+          <input type="submit" name="submit" class="btns" onclick = "return validate()" onmouseover="this.style.background='#0099ff'" onmouseout="this.style.background='#00ccff'"  value="保存">
+          &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      <input type="reset" class="btns"  onmouseover="this.style.background='#0099ff'" onmouseout="this.style.background='#00ccff'"  value="重置">
+        </p>
+	</div>
+  </form>
+</body>
+</html>
